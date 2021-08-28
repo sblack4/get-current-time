@@ -5,8 +5,11 @@ function action () {
     try {
         const utcOffset = core.getInput('utcOffset', { required: false });
         const format = core.getInput('format', { required: false });
+        const days_offset = core.getInput('days_offset', { required: false });
 
-        const time = moment().utcOffset(utcOffset);
+        // hacked in here to not upset mocks
+        const tim = moment().add(days_offset, 'days');
+        const time = moment(tim).utcOffset(utcOffset);
 
         core.setOutput("time", time.toISOString());
         core.setOutput("ISOTime", time.toISOString());

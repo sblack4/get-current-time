@@ -5,6 +5,10 @@ branding:
   icon: clock
   color: blue
 inputs:
+  days_to_substract:
+    description: "number of days in the future or past"
+    required: false
+    default: "0"
   format:
     description: "Time format to use using [MomemtJS format syntax](https://momentjs.com/docs/#/displaying/format/)"
     required: false

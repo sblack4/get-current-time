@@ -3,7 +3,8 @@ const mockMoment = {
     format: jest.fn(),
     toISOString: jest.fn(),
     toString: jest.fn(),
-    toArray: jest.fn()
+    toArray: jest.fn(),
+    add: jest.fn()
 };
 jest.doMock('moment', () => () => mockMoment);
 
@@ -53,6 +54,12 @@ describe("action", () => {
         action();
         expect(mockMoment.utcOffset).toHaveBeenCalledWith('###');
         expect(mockMoment.format).toHaveBeenCalledWith('###');
+    });
+
+    it("Should pass days inputs", () => {
+        mockCore.getInput.mockReturnValue(0);
+        action();
+        expect(mockMoment.add).toHaveBeenCalledWith(0, 'days');
     });
 
     it("Should throw error", () => {
