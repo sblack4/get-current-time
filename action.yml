@@ -5,7 +5,7 @@ branding:
   icon: clock
   color: blue
 inputs:
-  days_to_substract:
+  days_offset:
     description: "number of days in the future or past"
     required: false
     default: "0"
